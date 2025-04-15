@@ -1,1 +1,53 @@
+#Assignment 1: Design Your Own Class! 
 
+class Furniture:
+    def __init__(self, name, color, price, material, is_sold, is_available):
+        self.name = name
+        self.color = color
+        self.price = price
+        self.material = material
+        self.is_sold = False
+        self.is_available = True
+
+my_chair = Furniture("chair", "red", 100, "wood", False, True)
+my_table = Furniture("table", "blue", 200, "plastic",True, False)
+my_sofa = Furniture("sofa", "green", 300, "metal", False, True)
+my_bed = Furniture("bed", "yellow", 400, "wood", True, False)
+
+class my_chair(Furniture): # class that inherits from Furniture
+    def __init__(self, color, price, material, is_sold, is_available, quantity):
+        super().__init__('chair', color, price, material, is_sold, is_available)
+        self.quantity = quantity
+
+class my_bed(Furniture): #class that inherits from Furniture
+    def __init__(self, color, price, material, is_sold, is_available, number_of_pillows,size):
+        super().__init__('bed', color, price, material, is_sold, is_available)
+        self.number_of_pillows = number_of_pillows
+        self.size = size
+
+
+#Activity 2: Polymorphism Challenge!
+
+class animal:
+    def __init__(self, name, legs, move):
+        self.name = name
+        self.legs = legs
+        self.move = move
+
+my_horse = animal("horse", 4, "run")
+my_frog = animal("frog", 4, "jump")
+my_snake = animal("snake", 0, "slither")
+my_bird = animal("bird", 2, "fly")
+
+for animal in [my_horse, my_frog, my_snake, my_bird]:
+    print(f"The {animal.name} has {animal.legs} legs and it can {animal.move}.")
+    if animal.move == "run":
+        print("It is a mammal.")
+    elif animal.move == "jump":
+        print("It is an amphibian.")
+    elif animal.move == "slither":
+        print("It is a reptile.")
+    elif animal.move == "fly":
+        print("It is a bird.")
+    else:
+        print("Unknown type of animal.")
